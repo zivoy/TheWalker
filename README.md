@@ -1,3 +1,3 @@
-# The Walking Game
+# The Walker
 ### by group 2
 
