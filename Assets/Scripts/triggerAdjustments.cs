@@ -6,13 +6,6 @@ public class triggerAdjustments : MonoBehaviour
     public GameObject player;
 
     private adjustMovement _playerMoveScript;
-
-    [Tooltip("Change Player movement speed")]
-    public bool changeSpeed = false;
-    
-    [Tooltip("Value to set the speed to")]
-    public float setSpeed;
-    
     
     [Tooltip("Change Player movement gravity")]
     public bool changeGravity = false;
@@ -20,6 +13,13 @@ public class triggerAdjustments : MonoBehaviour
     [Tooltip("Value to set the gravity to")]
     public float setGravity;
 
+    
+    [Tooltip("Change Player movement speed multiplier")]
+    public bool changeSpeed = false;
+    
+    [Min(.001f), Tooltip("Value to set the speed multiplier to")]
+    public float setSpeedMultiplier;
+    
     private void Start()
     {
         _playerMoveScript = player.GetComponent<adjustMovement>();
@@ -45,8 +45,8 @@ public class triggerAdjustments : MonoBehaviour
         
         if (changeSpeed)
         {
-            Debug.Log("setting speed to "+setSpeed);
-            _playerMoveScript.speed = setSpeed;
+            Debug.Log("setting speed multiplier to "+setSpeedMultiplier);
+            _playerMoveScript.speedMultiplier = setSpeedMultiplier;
         }
         
         if (changeGravity)

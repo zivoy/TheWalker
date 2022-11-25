@@ -219,10 +219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1832590451}
-  changeSpeed: 0
-  setSpeed: 0
   changeGravity: 1
   setGravity: -2
+  changeSpeed: 0
+  setSpeedMultiplier: 0
 --- !u!65 &616385942
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -558,10 +558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1832590451}
-  changeSpeed: 0
-  setSpeed: 0
   changeGravity: 1
   setGravity: 2
+  changeSpeed: 0
+  setSpeedMultiplier: 0
 --- !u!65 &1709687342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -626,10 +626,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1832590451}
-  changeSpeed: 0
-  setSpeed: 0
   changeGravity: 1
   setGravity: 9.81
+  changeSpeed: 0
+  setSpeedMultiplier: 0
 --- !u!65 &2122176140
 BoxCollider:
   m_ObjectHideFlags: 0
