@@ -123,21 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &496136161
+--- !u!1001 &1134812207
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 146612817098093212, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 146612817098093212, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
-      propertyPath: gravity
-      value: 9.81
-      objectReference: {fileID: 0}
     - target: {fileID: 5581304047851078157, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -457,8 +449,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443505226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25997734, y: 0.05, z: -0.90113}
-  m_LocalScale: {x: 4.6607304, y: 4.6607304, z: 4.6607304}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

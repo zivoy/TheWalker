@@ -3,7 +3,17 @@ guid: f71f8796a7d64964aa61b2a5cd61ec13
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suit
+    second: {fileID: 2100000, guid: cbbe424644709b34fa22e1f8e7074563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: visor
+    second: {fileID: 2100000, guid: 235248aa6f8f29d4398fe54a3ad02cac, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
