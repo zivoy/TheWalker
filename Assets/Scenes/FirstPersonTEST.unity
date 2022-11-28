@@ -606,11 +606,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 681847276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 025f3d5d2792d874998113a7ba964965, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f0597a5cf6011442859e686e9e5a433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   mouseSensitivity: 100
-  playerBody: {fileID: 1341941508}
 --- !u!1 &726343828
 GameObject:
   m_ObjectHideFlags: 0
