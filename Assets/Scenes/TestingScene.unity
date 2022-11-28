@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0597a5cf6011442859e686e9e5a433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1224632077}
+  player: {fileID: 1224632077}
   offset: {x: 0, y: 0, z: 1}
+  mouseSensitivity: 1000
 --- !u!1 &393047399
 GameObject:
   m_ObjectHideFlags: 0
