@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1134812210}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 1}
 --- !u!1 &393047399
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,14 +456,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bba64bc0a992924d9dedfe55b013020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothing: 3
+  smoothing: 5
   PlayerMovementInput: {x: 0, y: 0, z: 0}
   m_transform: {fileID: 1134812210}
+  rotationspeed: 0.5
   PlayerBody: {fileID: 1134812209}
-  PlayerCamera: {fileID: 1214997386}
-  Speed: 3
+  PlayerCamera: {fileID: 159833147}
+  Speed: 2
   Sensitivty: 3
-  Jumpforce: 5
+  Jumpforce: 7
 --- !u!1 &1214997383
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +516,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 85
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
