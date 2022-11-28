@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7162582760830034892}
   - component: {fileID: 8282565203415717663}
   - component: {fileID: 146612817098093212}
+  - component: {fileID: 1870345286001643645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -185,6 +186,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 9.81
   speedMultiplier: 1
+--- !u!114 &1870345286001643645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251256629218711119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a24450daebb4514481b8b166d1526dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationController: {fileID: 4083062438260091669}
+  movementController: {fileID: 0}
+  walkingRunningCutoff: 3
 --- !u!1001 &6353181575956954415
 PrefabInstance:
   m_ObjectHideFlags: 0
