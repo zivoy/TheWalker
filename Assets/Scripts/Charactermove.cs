@@ -14,7 +14,7 @@ public class Charactermove : MonoBehaviour
     [SerializeField] private Rigidbody PlayerBody;
     [SerializeField] private Transform PlayerCamera;
     [Space]
-    [SerializeField] private float Speed;
+    public float Speed;
     [SerializeField] private float Sensitivty;
     [SerializeField] private float Jumpforce;
 

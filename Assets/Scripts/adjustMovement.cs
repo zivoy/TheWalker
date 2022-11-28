@@ -21,13 +21,13 @@ public class adjustMovement : MonoBehaviour
     // the default speed that can be used with the multiplier
     private float _defaultSpeed;
     
-    // the actual movement script ---- todo change type
-    private MonoScript _movementController;
+    // the actual movement script
+    private Charactermove _movementController;
     
     private void Start()
     {
-        _movementController = gameObject.GetComponent<MonoScript>(); // todo change to actual script
-        _defaultSpeed = 1f; // todo get starting speed from _movementController
+        _movementController = gameObject.GetComponent<Charactermove>();
+        _defaultSpeed = _movementController.Speed;
     }
 
     // Update is called once per frame
@@ -44,8 +44,7 @@ public class adjustMovement : MonoBehaviour
         
         if (Math.Abs(speedMultiplier - _lastSpeedMul) > .001f) // update if change is bigger then float errors 
         {
-            // todo - update speed in _movementController
-            float _ = speedMultiplier * _defaultSpeed;
+            _movementController.Speed = speedMultiplier * _defaultSpeed;
             _lastSpeedMul = speedMultiplier;
         }
     }
