@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class animator : MonoBehaviour
+public class AnimationManger : MonoBehaviour
 {
     public Animator animationController;
-    private Charactermove _movementController;
+    private PlayerController _movementController;
 
     [Header("Speed thresholds")] public float walkingRunningCutoff = 3f;
 
@@ -13,20 +13,26 @@ public class animator : MonoBehaviour
 
     void Start()
     {
-        _movementController = gameObject.GetComponent<Charactermove>();
+        _movementController = gameObject.GetComponent<PlayerController>();
     }
 
-    void Update()
+    private void Update()
     {
-        // movementController.PlayerMovementInput.x != 0  make rotation animation
+        UpdateRunningAnimation();
+    }
+
+    void UpdateRunningAnimation()
+    {
+        //  make rotation animation
+        var forwardSpeed = Input.GetAxis("Vertical"); 
         int state = 0;
         float speed = 1;
-        if (_movementController.PlayerMovementInput.z != 0)
+        if (forwardSpeed != 0)
         {
-            if (_movementController.Speed < walkingRunningCutoff)
+            if (_movementController.speed <= walkingRunningCutoff)
             {
                 // make the waking animation slow down the slower the speed is
-                speed = (_movementController.Speed + .5f) / walkingRunningCutoff;
+                speed = (_movementController.speed + .5f) / walkingRunningCutoff;
                 speed = Math.Min(1, speed);
 
                 state = 1;
@@ -39,7 +45,7 @@ public class animator : MonoBehaviour
 
 
             // reverse direction if walking backwards
-            if (_movementController.PlayerMovementInput.z < 0)
+            if (forwardSpeed < 0)
             {
                 speed *= -1;
             }
