@@ -15,13 +15,17 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public float gravity;
 
     Vector3 velocity;
-    bool isGrounded;
+
+    bool IsGrounded()
+    {
+        var pos = transform.position;
+        Debug.DrawLine(pos, pos + Vector3.down * groundDistance);
+        return Physics.Raycast(pos, Vector3.down, groundDistance) && gravity < 0;
+    }
 
     void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDistance) && gravity < 0;
-        Debug.DrawLine(transform.position, transform.position+Vector3.down*groundDistance);
-        if ( controller.isGrounded ) velocity.y = 0;
+        if (controller.isGrounded) velocity.y = 0;
 
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
@@ -30,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * (speed * Time.deltaTime));
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && IsGrounded()) // there is a bug where you cant jump when on the edge of a block
         {
             Debug.Log("jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
