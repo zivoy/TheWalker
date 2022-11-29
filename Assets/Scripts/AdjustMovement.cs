@@ -4,7 +4,7 @@ using UnityEngine;
 
 // gets controlled by special colliders
 
-public class adjustMovement : MonoBehaviour
+public class AdjustMovement : MonoBehaviour
 {
     [Header("Movement adjustors")]
 
@@ -22,12 +22,12 @@ public class adjustMovement : MonoBehaviour
     private float _defaultSpeed;
     
     // the actual movement script
-    private Charactermove _movementController;
+    private PlayerController _movementController;
     
     private void Start()
     {
-        _movementController = gameObject.GetComponent<Charactermove>();
-        _defaultSpeed = _movementController.Speed;
+        _movementController = gameObject.GetComponent<PlayerController>();
+        _defaultSpeed = _movementController.speed;
     }
 
     // Update is called once per frame
@@ -37,14 +37,15 @@ public class adjustMovement : MonoBehaviour
         if (Math.Abs(gravity - _lastGrav) > .001f) // update if change is bigger then float errors 
         {
             // update gravity
-            Physics.gravity = new Vector3(0, -gravity, 0);
+            Debug.Log(-gravity);
+            _movementController.gravity = -gravity;
             // update last
             _lastGrav = gravity;
         }
         
         if (Math.Abs(speedMultiplier - _lastSpeedMul) > .001f) // update if change is bigger then float errors 
         {
-            _movementController.Speed = speedMultiplier * _defaultSpeed;
+            _movementController.speed = speedMultiplier * _defaultSpeed;
             _lastSpeedMul = speedMultiplier;
         }
     }

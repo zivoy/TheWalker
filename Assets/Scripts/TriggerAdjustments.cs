@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class triggerAdjustments : MonoBehaviour
+public class TriggerAdjustments : MonoBehaviour
 {
     [Tooltip("target for adjusting")]
     public GameObject player;
 
-    private adjustMovement _playerMoveScript;
+    private AdjustMovement _playerMoveScript;
     
     [Tooltip("Change Player movement gravity")]
     public bool changeGravity = false;
@@ -22,7 +22,7 @@ public class triggerAdjustments : MonoBehaviour
     
     private void Start()
     {
-        _playerMoveScript = player.GetComponent<adjustMovement>();
+        _playerMoveScript = player.GetComponent<AdjustMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
