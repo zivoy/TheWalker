@@ -37,7 +37,6 @@ public class AdjustMovement : MonoBehaviour
         if (Math.Abs(gravity - _lastGrav) > .001f) // update if change is bigger then float errors 
         {
             // update gravity
-            Debug.Log(-gravity);
             _movementController.gravity = -gravity;
             // update last
             _lastGrav = gravity;

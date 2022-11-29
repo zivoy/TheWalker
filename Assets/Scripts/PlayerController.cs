@@ -19,13 +19,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDistance);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDistance) && gravity < 0;
         Debug.DrawLine(transform.position, transform.position+Vector3.down*groundDistance);
-
-        // if (isGrounded && velocity.y < 0)
-        // {
-            // velocity.y = -2f;
-        // }
+        if ( controller.isGrounded ) velocity.y = 0;
 
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
@@ -36,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            Debug.Log("jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 

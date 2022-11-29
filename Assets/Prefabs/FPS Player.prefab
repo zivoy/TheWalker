@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 415997892672982030}
     - target: {fileID: 8282565203415717663, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: groundDistance
-      value: 0.91
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8282565203415717663, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: animationManger
