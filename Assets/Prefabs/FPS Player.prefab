@@ -140,6 +140,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6278696873896168615}
     m_Modifications:
+    - target: {fileID: 4562023196522259103, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5581304047851078157, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -198,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 415997892672982030}
     - target: {fileID: 8282565203415717663, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: groundDistance
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8282565203415717663, guid: 03be03766c8d5ef41b257575a867d79a, type: 3}
       propertyPath: animationManger
