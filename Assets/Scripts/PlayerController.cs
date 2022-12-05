@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour
 
     public float groundDistance = 0.01f; // maybe use tags for ground
 
-    public Interaction focus;
-
     [NonSerialized] public float gravity;
 
     Vector3 velocity;
