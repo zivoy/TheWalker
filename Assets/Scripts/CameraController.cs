@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Camera cam;
     public Transform player;
     public Vector3 offset;
 
