@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,9 +12,13 @@ public class ShowText : MonoBehaviour
     }
 
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         Object.SetActive(true);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
         StartCoroutine(WaitForSec());
     }
 
