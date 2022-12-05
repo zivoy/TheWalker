@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded()) // there is a bug where you cant jump when on the edge of a block or ramp
         {
             Debug.Log("jump");
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight); //* -2f * gravity);
         }
 
         velocity.y += gravity * Time.deltaTime;
