@@ -4,80 +4,75 @@ public class PlayerRaycasting : MonoBehaviour
 {
     public float distanceToSee;
     RaycastHit whatIHit;
-    public GameObject player;
-
+    public Inventory playerInventory;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        playerInventory = gameObject.GetComponentInParent<Inventory>();
     }
 
     void Update()
     {
-        Debug.DrawRay(this.transform.position, this.transform.forward * distanceToSee, Color.magenta);
+        Debug.DrawRay(transform.position, transform.forward * distanceToSee, Color.magenta);
 
-        if(Physics.Raycast(this.transform.position, this.transform.forward, out whatIHit, distanceToSee))
+        if (!Physics.Raycast(transform.position, transform.forward, out whatIHit, distanceToSee)) return;
+        
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+
+        Debug.Log("Interacted with" + whatIHit.collider.gameObject.name);
+        if (whatIHit.collider.tag == "Keys")
         {
-            if (Input.GetKeyDown (KeyCode.E))
+            switch (whatIHit.collider.gameObject.GetComponent<KeyManager>().whatKeyAmI)
             {
-                Debug.Log ("Interacted with" +whatIHit.collider.gameObject.name);
-                if(whatIHit.collider.tag == "Keys")
-                {
-                    if(whatIHit.collider.gameObject.GetComponent<KeyManager>().whatKeyAmI == KeyManager.Keys.redKey)
+                case KeyManager.Keys.redKey:
+                    playerInventory.hasRedKey = true;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
+                case KeyManager.Keys.blueKey:
+                    playerInventory.hasBlueKey = true;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
+                case KeyManager.Keys.greenKey:
+                    playerInventory.hasGreenKey = true;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
+            }
+        }
+
+        if (whatIHit.collider.tag == "Doors")
+        {
+            switch (whatIHit.collider.gameObject.GetComponent<DoorManager>().whatDoorAmI)
+            {
+                case DoorManager.Doors.redDoor:
+                    if (!playerInventory.hasRedKey)
                     {
-                        player.GetComponent<Inventory>().hasRedKey = true;
-                        Destroy (whatIHit.collider.gameObject);
+                        Debug.Log("Find the Red Key");
+                        return;
                     }
-                    if(whatIHit.collider.gameObject.GetComponent<KeyManager>().whatKeyAmI == KeyManager.Keys.blueKey)
+
+                    playerInventory.hasRedKey = false;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
+                case DoorManager.Doors.blueDoor:
+                    if (!playerInventory.hasBlueKey)
                     {
-                        player.GetComponent<Inventory>().hasBlueKey = true;
-                        Destroy (whatIHit.collider.gameObject);
+                        Debug.Log("Find the Blue Key");
+                        return;
                     }
-                    if(whatIHit.collider.gameObject.GetComponent<KeyManager>().whatKeyAmI == KeyManager.Keys.greenKey)
+
+                    playerInventory.hasBlueKey = false;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
+                case DoorManager.Doors.greenDoor:
+                    if (!playerInventory.hasGreenKey)
                     {
-                        player.GetComponent<Inventory>().hasGreenKey = true;
-                        Destroy (whatIHit.collider.gameObject);
+                        Debug.Log("Find the Green Key");
+                        return;
                     }
-                }
-                if(whatIHit.collider.tag == "Doors")
-                {
-                    if(whatIHit.collider.gameObject.GetComponent<DoorManager>().whatDoorAmI == DoorManager.Doors.redDoor)
-                    {
-                        if(player.GetComponent<Inventory>().hasRedKey == true)
-                        {
-                            player.GetComponent<Inventory>().hasRedKey = false;
-                            Destroy (whatIHit.collider.gameObject);
-                        }
-                        else
-                        {
-                            Debug.Log ("Find the Red Key");
-                        }
-                    }
-                    if(whatIHit.collider.gameObject.GetComponent<DoorManager>().whatDoorAmI == DoorManager.Doors.blueDoor)
-                    {
-                        if(player.GetComponent<Inventory>().hasBlueKey == true)
-                        {
-                            player.GetComponent<Inventory>().hasBlueKey = false;
-                            Destroy (whatIHit.collider.gameObject);
-                        }
-                        else
-                        {
-                            Debug.Log ("Find the Blue Key");
-                        }
-                    }
-                    if(whatIHit.collider.gameObject.GetComponent<DoorManager>().whatDoorAmI == DoorManager.Doors.greenDoor)
-                    {
-                        if(player.GetComponent<Inventory>().hasGreenKey == true)
-                        {
-                            player.GetComponent<Inventory>().hasGreenKey = false;
-                            Destroy (whatIHit.collider.gameObject);
-                        }
-                        else
-                        {
-                            Debug.Log ("Find the Green Key");
-                        }
-                    }
-                }
+
+                    playerInventory.hasGreenKey = false;
+                    Destroy(whatIHit.collider.gameObject);
+                    break;
             }
         }
     }
