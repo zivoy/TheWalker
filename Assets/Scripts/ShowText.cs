@@ -23,7 +23,7 @@ public class ShowText : MonoBehaviour
 
     public void Show()
     {
-        if (shown) return;
+        //if (shown) return;
         Object.SetActive(true);
         isShown = true;
         shown = true;

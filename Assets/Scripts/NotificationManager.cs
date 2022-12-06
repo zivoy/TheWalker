@@ -9,6 +9,7 @@ public class NotificationManager : MonoBehaviour
 
     public void UpdateNotification(ShowText notification)
     {
+        if (notification == CurrentNotification) return;
         if (CurrentNotification == null || !CurrentNotification.isShown)
         {
             CurrentNotification = notification;
