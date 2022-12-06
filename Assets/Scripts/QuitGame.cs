@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class QuitGame : MonoBehaviour
 {
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
- public void ExitGame()
- {
-    Application.Quit();
- }
- void start()
- {
-   Cursor.visible = true;
- }
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
 }
